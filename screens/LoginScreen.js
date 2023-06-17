@@ -10,7 +10,7 @@ const LoginScreen = () => {
   return (
     <View style={styles.container}>
       <ListIcon />
-      <View>
+      <View style={styles.inputContainer}>
         <TextInput
           placeholder="email"
           value={email}
@@ -46,8 +46,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
-    width: 80,
+    width: '80%',
     marginTop: 15,
+  },
+  input: {
     backgroundColor: 'white',
     paddingHorizontal: 15,
     paddingVertical: 10,
@@ -74,16 +76,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
 
   },
-  buttonOutline:{
-    backgroundColor:'white',
-    marginTop:5,
-    borderColor:'black',
-    borderWidth:1,
+  buttonOutline: {
+    backgroundColor: 'white',
+    marginTop: 5,
+    borderColor: 'black',
+    borderWidth: 1,
   },
-  buttonOutlineText:{
-    color:'black',
-    fontWeight:'500',
-    fontSize:16,
+  buttonOutlineText: {
+    color: 'black',
+    fontWeight: '500',
+    fontSize: 16,
   }
 
 })
