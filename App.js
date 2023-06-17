@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import MainScreen from './screens/MainScreen';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
@@ -15,8 +14,8 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Main" component={MainScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen options={{ headerShown: false }} name="Main" component={MainScreen} />
+          <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
