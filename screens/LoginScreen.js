@@ -1,11 +1,28 @@
 import { StyleSheet, TextInput, TouchableOpacity, View, Text } from 'react-native'
 import React, { useState } from 'react'
 import ListIcon from '../assets/list.svg'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+
 
 const LoginScreen = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const auth = getAuth()
+
+  const handleSignUp = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      console.log('user', user);
+    } catch (error) {
+      console.log(error.message);
+    }
+
+  }
+
+  const handleLogin=async()=>{
+    
+  }
 
   return (
     <View style={styles.container}>
@@ -26,11 +43,11 @@ const LoginScreen = () => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Log in</Text>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+          <Text style={styles.buttonText}>Log In</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.buttonOutline]}>
-          <Text style={styles.buttonOutlineText}>Sign in</Text>
+        <TouchableOpacity style={[styles.button, styles.buttonOutline]} onPress={handleSignUp}>
+          <Text style={styles.buttonOutlineText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
     </View>
