@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, TouchableOpacity, View, Text } from 'react-native'
+import { StyleSheet, TextInput, TouchableOpacity, View, Text, Alert } from 'react-native'
 import React, { useState } from 'react'
 import ListIcon from '../assets/list.svg'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
@@ -16,12 +16,17 @@ const LoginScreen = () => {
       console.log('user', user);
     } catch (error) {
       console.log(error.message);
+      Alert.alert(
+        "There was a problem signing up",
+        error.message,
+        [{ text: 'close', onPress: () => console.log('close') }],{ cancelable: true }
+      )
     }
 
   }
 
-  const handleLogin=async()=>{
-    
+  const handleLogin = async () => {
+
   }
 
   return (
