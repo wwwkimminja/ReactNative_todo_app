@@ -2,6 +2,7 @@ import { StyleSheet, TextInput, TouchableOpacity, View, Text, Alert } from 'reac
 import React, { useState } from 'react'
 import ListIcon from '../assets/list.svg'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import Toast from "react-native-toast-message"
 
 
 const LoginScreen = () => {
@@ -14,12 +15,19 @@ const LoginScreen = () => {
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
       console.log('user', user);
+      Toast.show(
+        {
+          type: 'success',
+          text1: 'success',
+          text2: `Sign up with this ${email}`
+        }
+      )
     } catch (error) {
       console.log(error.message);
       Alert.alert(
         "There was a problem signing up",
         error.message,
-        [{ text: 'close', onPress: () => console.log('close') }],{ cancelable: true }
+        [{ text: 'close', onPress: () => console.log('close') }], { cancelable: true }
       )
     }
 
