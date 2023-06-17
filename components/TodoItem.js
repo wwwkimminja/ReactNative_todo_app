@@ -15,7 +15,7 @@ const TodoItem = (props) => {
       </Pressable>
 
       <Text style={[styles.itemText, props.state === "done" ? styles.itemTextChecked : ""]}>{props.text}</Text>
-      <Pressable hitSlop={10} style={[styles.deleteButton, styles.deleteButtonDone]} onPress={() => dispatch(deleteTodo(props.id))}>
+      <Pressable hitSlop={10} style={[styles.deleteButton, props.state==='done'?styles.deleteButtonDone:""]} onPress={() => dispatch(deleteTodo(props.id))}>
         <DeleteIcon />
       </Pressable>
     </View>
